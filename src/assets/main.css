@@ -11,3 +11,12 @@ body {
 ul {
   list-style: none;
 }
+
+body.locked {
+  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  body.locked {
+    overflow: visible;
+  }
+}

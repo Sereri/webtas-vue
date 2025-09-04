@@ -6,7 +6,7 @@ defineProps(['width', 'image', 'text', 'link']);
     <a :href="link" target="_blank" class="block-image">
       <img :src="image" alt="Artikel #76">
     </a>
-    <div class="block-text">{{ text }}</div>
+    <div class="block-text" v-html="text"></div>
     <a :href="link" target="_blank" class="block-link">weiter</a>
   </div>
 </template>
@@ -30,6 +30,14 @@ defineProps(['width', 'image', 'text', 'link']);
 .block-image img {
   width: 100%;
   aspect-ratio: 1.25 / 1;
+}
+
+.block-2 img {
+  aspect-ratio: 2.5 / 1;
+}
+
+.block-3 img {
+  aspect-ratio: 3.75 / 1;
 }
 
 .block-text {

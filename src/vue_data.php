@@ -87,9 +87,13 @@ $sbkasten_query = $mysqli->query("SELECT sb_text, sb_id FROM sidebar ORDER BY sb
 $sbkasten_query->fetch_array();
 while ($sbkasten = $sbkasten_query->fetch_array()) {
   $sidebarItemContent = '';
+  $content = trim($sbkasten['sb_text']);
+  if ((substr($content, 0, 4) === "<!--") && (substr($content, -3) === "-->")) {
+    continue;
+  }
 
 
-  if ($sbkasten['sb_text'] == "[pflegetiere]") {
+  if ($content == "[pflegetiere]") {
     $sidebarItemContent = '<strong>Wir suchen ein Zuhause:</strong>
         <ul class="slideshow">';
     $durchgang = 1;
@@ -108,7 +112,7 @@ while ($sbkasten = $sbkasten_query->fetch_array()) {
     };
 
     $sidebarItemContent .= '</ul>';
-  } elseif ($sbkasten['sb_text'] == "[patentiere]") {
+  } elseif ($content == "[patentiere]") {
     $sidebarItemContent = "<strong>Wir suchen einen Paten:</strong>";
     $patenresult = $mysqli->query("SELECT tier_ID,tier_NAME FROM tiere2 WHERE tier_STATUS='0' AND tier_PATE='1'");
     $nums = $patenresult->num_rows;
@@ -133,7 +137,7 @@ while ($sbkasten = $sbkasten_query->fetch_array()) {
       $sidebarItemContent .= '<a href="site.php?site=52">Wir suchen einen Paten</a>';
     };
   } else {
-    $sidebarItemContent = str_replace(["\n", "\r"], '', utf8_encode($sbkasten['sb_text']));
+    $sidebarItemContent = str_replace(["\n", "\r"], '', utf8_encode($content));
   }
   $sidebarArray[] = ['content' => $sidebarItemContent, 'id' => $sbkasten['sb_id']];
 }

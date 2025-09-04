@@ -19,11 +19,11 @@
   background-position: center center;
   background-size: cover;
   padding-top: 15px;
-  margin-top: 40px;
 }
 
 @media (min-width: 1024px) {
   .header {
+    margin-top: 40px;
     padding-top: 200px;
   }
 }

@@ -54,7 +54,6 @@ main {
   margin-left: auto;
   margin-right: auto;
   height: auto;
-  overflow: hidden;
   margin-top: -75px;
   justify-content: space-between;
 }

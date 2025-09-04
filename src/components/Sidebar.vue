@@ -19,8 +19,8 @@ const sidebarContent = computed(() => Array.isArray(props.data) ? props.data : s
 <template>
   <div class="sidebar">
     <div class="sidebar-items">
-      <div class="sidebar-kasten sidebar-head">Aktiv werden</div>
-      <div v-for="sbcontent in sidebarContent" class="sidebar-kasten" v-html="sbcontent.content" :key="sbcontent.id">
+      <div class="sidebar-item sidebar-head">Aktiv werden</div>
+      <div v-for="sbcontent in sidebarContent" class="sidebar-item" v-html="sbcontent.content" :key="sbcontent.id">
       </div>
     </div>
   </div>
@@ -35,6 +35,17 @@ const sidebarContent = computed(() => Array.isArray(props.data) ? props.data : s
   .sidebar {
     overflow: visible;
     max-width: none;
+    flex: 1 0 auto;
+    align-self: stretch;
+    position: sticky;
+    height: fit-content;
+    top: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    top: 40px;
   }
 }
 
@@ -42,7 +53,7 @@ const sidebarContent = computed(() => Array.isArray(props.data) ? props.data : s
   display: flex;
   font-family: "Verdana", "Tahoma", sans-serif;
   font-size: small;
-  align-items: start;
+  align-items: stretch;
   gap: 5px;
   padding: 0 5px;
 }
@@ -58,7 +69,7 @@ const sidebarContent = computed(() => Array.isArray(props.data) ? props.data : s
   }
 }
 
-.sidebar-kasten {
+.sidebar-item {
   flex-shrink: 0;
   font-size: small;
   overflow: hidden;
@@ -66,23 +77,23 @@ const sidebarContent = computed(() => Array.isArray(props.data) ? props.data : s
   color: #333;
   background-color: #efefef;
   border-radius: 2px;
-  max-height: 200px;
-  max-width: 198px;
+  width: 198px;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 @media (min-width: 600px) {
-  .sidebar-kasten {
-    max-height: none;
+  .sidebar-item {
+    display: block;
   }
 }
 
 .sidebar-head {
   font-size: 16px;
   font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-self: stretch;
 }
 
 @media (min-width: 600px) {
