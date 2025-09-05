@@ -13,18 +13,19 @@
 .header {
   display: flex;
   justify-content: end;
-  height: 240px;
+  height: 255px;
   background-image: url("https://tierschutz-ohne-grenzen.de/header.php");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
 @media (min-width: 1024px) {
   .header {
     margin-top: 40px;
     padding-top: 200px;
+    height: 440px;
   }
 }
 

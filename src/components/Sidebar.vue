@@ -19,7 +19,7 @@ const sidebarContent = computed(() => Array.isArray(props.data) ? props.data : s
 <template>
   <div class="sidebar">
     <div class="sidebar-items">
-      <div class="sidebar-item sidebar-head">Aktiv werden</div>
+      <div class="sidebar-item sidebar-head">Aktiv werden:</div>
       <div v-for="sbcontent in sidebarContent" class="sidebar-item" v-html="sbcontent.content" :key="sbcontent.id">
       </div>
     </div>
@@ -40,6 +40,7 @@ const sidebarContent = computed(() => Array.isArray(props.data) ? props.data : s
     position: sticky;
     height: fit-content;
     top: 0;
+    max-width: 198px;
   }
 }
 
@@ -83,6 +84,10 @@ const sidebarContent = computed(() => Array.isArray(props.data) ? props.data : s
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.sidebar-item :deep(a) {
+  color: #C04040;
 }
 
 @media (min-width: 600px) {

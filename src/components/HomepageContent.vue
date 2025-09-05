@@ -61,14 +61,14 @@ const contents = computed(() => Array.isArray(props.data) ? props.data : content
 
 </script>
 <template>
-  <div class="content">
+  <div class="homepage-content">
     <template v-for="content in contents" :key="content.width">
       <Block v-bind:="content" />
     </template>
   </div>
 </template>
 <style scoped>
-.content {
+.homepage-content {
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-flow: row dense;
@@ -80,14 +80,13 @@ const contents = computed(() => Array.isArray(props.data) ? props.data : content
 }
 
 @media (min-width: 600px) {
-  .content {
+  .homepage-content {
     grid-template-columns: 1fr 1fr;
-    padding-right: 15px;
   }
 }
 
 @media (min-width: 1024px) {
-  .content {
+  .homepage-content {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }

@@ -73,11 +73,6 @@ function toggleMenu(event: MouseEvent) {
 </template>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-}
-
 nav {
   color: #fff;
   background-color: #C04040;
@@ -168,7 +163,7 @@ nav.active .nav-items {
   nav,
   nav.active {
     padding-top: 10px;
-    height: 30px;
+    height: 40px;
     width: 100%;
     max-width: 100%;
     font-size: 14px;

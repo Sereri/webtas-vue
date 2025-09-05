@@ -29,15 +29,15 @@ defineProps(['width', 'image', 'text', 'link']);
 
 .block-image img {
   width: 100%;
-  aspect-ratio: 1.25 / 1;
+  aspect-ratio: 247 / 200;
 }
 
 .block-2 img {
-  aspect-ratio: 2.5 / 1;
+  aspect-ratio: 511 / 200;
 }
 
 .block-3 img {
-  aspect-ratio: 3.75 / 1;
+  aspect-ratio: 775 / 200;
 }
 
 .block-text {
@@ -51,9 +51,6 @@ defineProps(['width', 'image', 'text', 'link']);
   line-height: 11px;
   font-size: small;
   font-weight: bold;
-}
-
-.block-link a {
   color: #C04040;
 }
 

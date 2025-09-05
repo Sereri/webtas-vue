@@ -1,7 +1,9 @@
 <script setup lang="ts">
+const props = defineProps(['type']);
 import Navi from './components/Navi.vue';
 import Header from './components/Header.vue';
-import Content from './components/Content.vue';
+import HomepageContent from './components/HomepageContent.vue';
+import PageContent from './components/PageContent.vue';
 import Sidebar from './components/Sidebar.vue';
 import Footer from './components/Footer.vue';
 import { onMounted, reactive } from 'vue';
@@ -32,7 +34,8 @@ onMounted(() => {
   </header>
 
   <main>
-    <Content :data="data.content" />
+    <HomepageContent v-if="props.type === 'homepage'" :data="data.content" />
+    <PageContent v-if="props.type === 'page'" :data="data.content" />
     <Sidebar :data="data.sidebar" />
   </main>
   <Footer></Footer>
@@ -56,6 +59,7 @@ main {
   height: auto;
   margin-top: -75px;
   justify-content: space-between;
+  column-gap: 20px;
 }
 
 @media (max-width: 600px) {
